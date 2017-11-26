@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link href="assets\bootstrap\css\bootstrap-fileupload.css" rel="stylesheet">
+ 
+  
+  <script src="http://code.jquery.com/jquery-3.2.1.js"></script> 
+
+  
+  
+  <body>
+        <div id="throbber" style="display:none; min-height:120px;"></div>
+        <div id="noty-holder"></div>
+        <div id="wrapper">
+            <!-- Navigation -->
+            
+            <nav class="navbar navbar-inverse navbar-fixed-top" id="mainNav" role="navigation">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                
+                <div class="navbar-header col-md-12">
+                        
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    
+                    <a class="navbar-brand" href="index.html">Ramazan Arıcan</a>
+                    </a>
+                    <ul class="navbar-nav ml-auto" style="float:right; padding-right:25px; padding-top:12px; list-style: none;">
+                            
+                            <li class="nav-item">
+                              <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
+                                <i class="fa fa-fw fa-sign-out"></i>Çıkış</a>
+                            </li>
+                          </ul>
+                  
+                <!-- Top Menu Items -->
+               
+            
+                <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+                <div class="collapse navbar-collapse navbar-ex1-collapse">
+                    <ul class="nav navbar-nav side-nav">
+                            <li>
+                                    <a href="index.html"><i class="fa fa-fw fa-home"></i>  ANASAYFA</a>
+                                </li>
+                        <li>
+                            <a href="#" data-toggle="collapse" data-target="#submenu-2"><i class="fa fa-fw fa-star"></i>  MENU 2 <i class="fa fa-fw fa-angle-down pull-right"></i></a>
+                            <ul id="submenu-2" class="collapse">
+                                <li><a href="#"><i class="fa fa-angle-double-right"></i> SUBMENU 2.1</a></li>
+                                <li><a href="#"><i class="fa fa-angle-double-right"></i> SUBMENU 2.2</a></li>
+                                <li><a href="#"><i class="fa fa-angle-double-right"></i> SUBMENU 2.3</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="investigaciones/favoritas"><i class="fa fa-fw fa-user-plus"></i>  MENU 3</a>
+                        </li>
+                        <li>
+                            <a href="sugerencias"><i class="fa fa-fw fa-paper-plane-o"></i> MENU 4</a>
+                        </li>
+                        <li>
+                            <a href="faq"><i class="fa fa-fw fa fa-question-circle"></i> MENU 5</a>
+                        </li>
+                    
+                  
+                </div>
+                <!-- /.navbar-collapse -->
+            </nav>
+        
+            <div id="page-wrapper">
+                    <div class="row-fluid">
+                            <div class="panel panel-success">
+                                    <div class="panel-heading">Dosya Yönetim Paneli</div>
+                                    <div class="panel-body">
+                                        
+                                            <div class="row">
+                                                    
+                                                    <div class="col-md-12">
+                                                      <h1 style="margin-top:-10px;" class="kayitlar">Kayıtlar</h1>
+                                                      <table style="margin-bottom:10px;" class="table table-hover" id="tbKayitlar">
+                                                        <tr class="bg-info">
+                                                                <td>
+                                                                        <input type="checkbox" class="form-control" id="cbTum">
+                                                                      </td>
+                                                          <td>Dosya Adı</td>
+                                                          <td>Değiştirme Tarihi</td>
+                                                          <td>Boyut</td>
+                                                          <td>Türü</td>
+                                                          <td>Sil</td>
+                                                        </tr>
+                                                        <tr>
+                                                                <td>
+                                                                        <input type="checkbox" class="form-control" id="cb1">
+                                                                      </td>
+                                                          <td>Deneme1.pdf</td>
+                                                          <td>01.01.2017</td>
+                                                          <td>200kb</td>
+                                                          <td>pdf</td>
+                                                          <td>
+                                                            <button class="btn btn-danger sil">Sil</button>
+                                                          </td>
+                                                        </tr>
+                                                        <tr>
+                                                                <td>
+                                                                        <input type="checkbox" class="form-control" id="cb2">
+                                                                      </td>
+                                                          <td>Deneme2.txt</td>
+                                                          <td>09.09.2011</td>
+                                                          <td>2100kb</td>
+                                                          <td>txt</td>
+                                                          <td>
+                                                            <button class="btn btn-danger sil">Sil</button>
+                                                          </td>
+                                                        </tr>
+                                                      </table>
+                                                    </div> 
+                                                    <div class="col-md-12">
+                                                    <div class="control-group" style="padding-left:14px;">
+                                                            <label class="control-label"></label>
+                                                            <div class="controls">
+                                                                <input type="file" class="default">
+                                                            </div></div>
+                                                            <hr><button id="btnYukle" class="btn btn-primary">Yükle</button> 
+                                                            <button id="btnDuzenle" class="btn btn-warning">Düzenle</button>
+                                                            <button id="btnTumSil"  class="btn btn-danger">Seçilenleri Sil</button>
+                                                            <hr>
+                                                        </div>
+                                                        <div class="col-md-12">
+                                                                <table class="table table-hover">
+                                                                  <tr class="bg-info">
+                                                                    <td>Dosya Adı</td>
+                                                                    <td>Değiştirme Tarihi</td>
+                                                                    <td>Boyut</td>
+                                                                    <td>Türü</td>
+                                                                  </tr>
+                                                                  <tr class="">
+                                                                    <td>
+                                                                      <input type="text" class="form-control" id="txtDosyaAdi">
+                                                                    </td>
+                                                                    <td>
+                                                                     <input type="text" class="form-control" id="txtDTarih">
+                                                                    </td>
+                                                                    <td>
+                                                                      <input type="text" class="form-control" id="txtBoyut">
+                                                                    </td>
+                                                                    <td>
+                                                                      <input type="text" class="form-control" id="txtTur">
+                                                                    </td>
+                                                                  </tr>
+                                                                  <tr>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>
+                                                                      <button id="btnKaydet" class="btn btn-success btn-block">Kaydet</button>
+                                                                    </td>
+                                                                  </tr>
+                                                                </table>
+                                                  </div>
+                                                </div>
+
+<!-- Logout Modal-->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+              
+            <div class="modal-header">
+            
+              <h5 class="modal-title" style="font-weight: bold; font-size: 21px;" id="exampleModalLabel">Çıkış Yapılıyor...</h5>
+              
+            </div>
+            <div class="modal-body">Çıkmak için "Çıkış" Butonuna Basınız...</div>
+            <div class="modal-footer">
+              <button class="btn btn-secondary" type="button" data-dismiss="modal">İptal</button>
+              <a class="btn btn-primary" href="login.html">Çıkış</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+                                                <script src="js/jquery-3.2.1.js"></script>
+                                                <script>
+                                                  $(function () {
+                                                    $("#btnKaydet").click(function () {
+                                              
+                                                      var DosyaAdi = $("#txtDosyaAdi").val();
+                                                      var DTarih = $("#txtDTarih").val();
+                                                      var Boyut = $("#txtBoyut").val();
+                                                      var Tur = $("#txtTur").val();
+                                                      
+                                                       
+                                                      if (DosyaAdi == "" || DTarih == "" || Boyut == "" || Tur == "") {
+                                                        $("#sonuc").fadeIn(1000);
+                                                        $("#sonuc").html("Lütfen Tüm Alanları Doldurunuz!");
+                                                        $("#sonuc").removeClass();
+                                                        $("#sonuc").addClass("alert alert-danger");
+                                                        $("#sonuc").fadeOut(3000);
+                                                        return false;
+                                                      }
+                                                     
+                                                      $("#tbKayitlar").append("<tr><td>" + "<input type='checkbox' class='form-control' id='cb2'>" + "</td><td>" + DosyaAdi + "</td><td>" + DTarih + "</td><td>" + Boyut + "</td><td>" + Tur + "</td><td><button class='btn btn-danger sil'>Sil</button></td></tr>");
+                                                    });
+                                              
+                                                    $(document).on("click", ".sil", function () {
+                                                      var satir = $(this).closest("tr");
+                                                      satir.remove();
+                                              
+                                                    });
+                                                  });
+                                                </script>
+                                                <script>
+                                                        $(function () {
+                                                          $("#cbTum").click(function () {
+                                                            var sec = $(this).prop("checked");
+                                                    
+                                                            for (var i = 0; i < $("input:checkbox").length; i++) {
+                                                              var idsi = $("input:checkbox:eq(" + i + ")").attr("id");
+                                                              if (idsi != "cbTum") {
+                                                                document.getElementById(idsi).checked = sec;
+                                                              }
+                                                            }
+                                                    
+                                                          });
+                                                    
+                                                          $("input:checkbox").click(function () {
+                                                            var secili = true;
+                                                            for (var i = 0; i < $("input:checkbox").length; i++) {
+                                                              var idsi = $("input:checkbox:eq(" + i + ")").attr("id");
+                                                    
+                                                              if (idsi != "cbTum" && document.getElementById(idsi).checked == false) {
+                                                                secili = false;
+                                                              }
+                                                            }
+                                                    
+                                                            document.getElementById("cbTum").checked = secili;
+                                                          });
+                                                    
+                                                        });
+                                                      </script>
+                                                     
+<script src="js/bootstrap.min.js"></script>
+</html>
